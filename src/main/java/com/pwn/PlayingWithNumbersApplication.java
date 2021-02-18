@@ -12,15 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.lang.reflect.Array;
 import java.util.*;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
+@SpringBootApplication
 public class PlayingWithNumbersApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext appContext = SpringApplication.run(PlayingWithNumbersApplication.class, args);
-		PlayingWithNumbersService pwnService = appContext.getBean(PlayingWithNumbersService.class);
+		PlayingWithAlphanumericNumbers pwanService = appContext.getBean(PlayingWithAlphanumericNumbers.class);
+		pwanService.start();
+		//PlayingWithNumbersService pwnService = appContext.getBean(PlayingWithNumbersService.class);
 		//pwnService.startDefault();
 		//for section c, just do pwnService.startDefault instead of the rest of this stuff
-		pwnService.startUserStories();
+		/*pwnService.startUserStories();
 		Scanner scan = new Scanner(System.in);
 		while(true) {
 			System.out.println("Would you like to run the program again? (y/n)");
@@ -36,7 +38,7 @@ public class PlayingWithNumbersApplication {
 				pwnService.startUserStories();
 			}
 		}
-		scan.close();
+		scan.close();*/
 		System.exit(0);
 	}
 }
